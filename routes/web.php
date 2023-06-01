@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TodosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,5 +18,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/todo', function () {
-});
+Route::resource('todos', TodosController::class, ['only' => ['index', 'create', 'store', 'update', 'edit', 'destroy']]);

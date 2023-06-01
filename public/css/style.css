@@ -1,0 +1,22 @@
+:root {
+  box-sizing: content-box;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+body *+* {
+  margin-top: 1.5em;
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+}
