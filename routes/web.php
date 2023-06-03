@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::controller(TodosController::class)->group(function () {
+  Route::get('/', 'index');
+  Route::match(['post', 'put', 'patch'], '/create', 'create');
+  Route::match(['post', 'put', 'patch'], '/update', 'update');
 });
-
-Route::resource('todos', TodosController::class, ['only' => ['index', 'create', 'store', 'update', 'edit', 'destroy']]);

@@ -15,11 +15,19 @@ class TodosController extends Controller
         ]);
     }
 
-    public function store(Request $request, Todos $todo)
+    public function create(Request $request, Todos $todo)
     {
+        $request->merge([
+            'status' => "waiting" // Prevent creating task with invalid default value
+        ]);
         $todo->fill($request->all());
         $todo->save();
 
-        return redirect('/todos')->with('success', 'Successfully added todo');
+        return redirect('/')->with('success', 'Successfully added todo');
+    }
+
+    public function update(Request $request, Todos $todo)
+    {
+        return redirect('/')->with('success', 'Updated todo');
     }
 }

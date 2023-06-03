@@ -9,6 +9,7 @@
 </head>
 <body>
   <div class="container">
+    <h1>Todo List</h1>
     @yield('content')
   </div> 
 </body>
